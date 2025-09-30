@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PixelClient 1.12.2 WASM Launcher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background-color: #1a1a1a; color: #ffffff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .loading-text { font-size: 24px; }
+    </style>
+</head>
+<body>
+
+    <div class="loading-text">Loading PixelClient... Please Wait.</div>
+
+    <script type="text/javascript">
+        // --- 1. Define the IPFS URL ---
+        const ipfsScriptUrl = "https://bafybeiegzhqjkqzjxzgta27e2ucvbin7wkt25kpolj2on2pzpgmziphqiy.ipfs.dweb.link/";
+
+        // --- 2. Create the script element ---
+        const script = document.createElement('script');
+
+        // --- 3. Set the source to your IPFS URL ---
+        // The browser will fetch and execute this script, which starts the game.
+        script.src = ipfsScriptUrl;
+
+        // --- 4. Append the script to the head of the document to start loading ---
+        document.head.appendChild(script);
+
+        // Optional: Clear the loading text once the page is interactive
+        // The game script itself will typically take over the screen.
+        window.addEventListener('load', () => {
+            const loadingDiv = document.querySelector('.loading-text');
+            if (loadingDiv) {
+                loadingDiv.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
